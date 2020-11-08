@@ -1,0 +1,91 @@
+
+
+
+<h1>Product Details</h1>
+<div class="container">
+    <div style="text-align: right;">  
+    <input type="text" [(ngModel)]="search">   
+</div>
+    <div class="table-responsive">         
+    <table class="table table-striped">
+      <thead *ngIf="data.length>0">
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>COLOR</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of data |filter:search">
+          <td>{{product.id}}</td>
+          <td>{{product.name}}</td>
+          <td>{{product.color}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- Two Way data binding -->
+  <div class="container">
+  <h1>Two Way Data binding</h1>
+<input type="text" [(ngModel)]="message">{{message}}
+</div>
+
+<h1> User Details</h1>
+<div class="container">  
+    <div class="table-responsive">         
+    <table class="table table-striped">
+      <thead *ngIf="user.length>0">
+        <tr>
+          <th>ID</th>
+          <th>NAME</th>
+          <th>UserName</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Website</th>
+          <th>Company</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let u of user">
+          <td>{{u.id}}</td>
+          <td>{{u.name}}</td>
+          <td>{{u.username}}</td>
+          <td>{{u.email}}</td>
+          <td>{{u.address.street}}</td>
+          <td>{{u.phone}}</td>
+          <td>{{u.website}}</td>
+          <td>{{u.company.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <div class="container">
+   <h1>Ng Switch Case</h1>
+   <div *ngFor="let i of switchData">
+    <div [ngSwitch]="i">
+   <span *ngSwitchCase="1">One</span>
+   <span *ngSwitchCase="2">Two</span>
+   <span *ngSwitchCase="3">Three</span>
+   <span *ngSwitchDefault>No Match</span>
+    </div>
+   </div>
+  </div>
+  <!-- |date:'short' or date:'shortDate' or date:'shortTime  or |json |uppercase |lowercase' -->
+  <div class="container">
+    <h1>Pipe</h1>
+    <h2>{{message | titlecase}}</h2>
+    <h2>{{date | date:'shortDate'}}</h2>
+   </div>
+   
+
+  <!-- tyep in cmd :ng g p age -->
+   <div class="container">
+    <h1>Custom Pipe</h1>
+    <h3>Age :{{dobValue |date:'shortDate' |age}}</h3>
+      </div>
+   
